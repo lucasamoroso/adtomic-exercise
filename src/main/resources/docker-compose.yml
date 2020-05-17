@@ -1,0 +1,19 @@
+version: '3.7'
+
+services:
+  adtomic_db:
+    image: 'mysql:8.0.20'
+    container_name: adtomic-db
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=adtomic
+      - MYSQL_USER=adtomic
+      - MYSQL_PASSWORD=adtomic
+    ports:
+      - "3306:3306"
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "10"
