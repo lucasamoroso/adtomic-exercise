@@ -60,8 +60,8 @@ public class PurchaseService {
   }
 
 
-  public List<Purchase> allPurchases() {
-    return List.ofAll(repository.findAll());
+  public java.util.List<Purchase> allPurchases() {
+    return repository.findAll();
   }
 
   public Try<Purchase> save(Purchase purchase) {
