@@ -1,7 +1,8 @@
 package com.adtomic.domain.providers;
 
+import com.adtomic.model.autoParts.AutoPartName;
 import com.adtomic.model.purchase.PurchaseOption;
-import io.vavr.collection.List;
+import io.vavr.collection.HashMap;
 import lombok.val;
 
 import java.time.DayOfWeek;
@@ -9,7 +10,7 @@ import java.time.LocalDate;
 import java.time.temporal.TemporalAdjusters;
 import java.util.Objects;
 
-import static com.adtomic.domain.providers.ProvidersEnum.AUTOS_AR;
+import static com.adtomic.domain.providers.ProviderNames.AUTOS_AR;
 import static com.adtomic.model.autoParts.AutoPartType.BODY_WORK;
 import static com.adtomic.model.payment.PaymentMethod.CASH;
 
@@ -18,21 +19,24 @@ import static com.adtomic.model.payment.PaymentMethod.CASH;
  */
 public class AutosAR extends Provider {
 
-  public List<PurchaseOption> bestOptionFor(LocalDate date) {
-    if (isThirdSaturday(date)) {
-      return autoParts.filter(a -> Objects.equals(BODY_WORK, a.type()))
-          .map(ap ->
-              PurchaseOption.builder()
-                  .provider(AUTOS_AR)
-                  .paymentOption(CASH)
-                  .price(ap.price(date) * 0.85d)
-                  .build()
-          );
-    }
-    return List.empty();
+  protected HashMap<AutoPartName, PurchaseOption> getSales(LocalDate date) {
+    return super.autoParts.filter(a -> Objects.equals(BODY_WORK, a.type()))
+        .foldLeft(HashMap.empty(), (collection, ap) ->
+            collection.put(ap.name(), PurchaseOption.builder()
+                .provider(name())
+                .paymentOption(CASH)
+                .price(ap.price(date) * 0.85d)
+                .build())
+        );
+
   }
 
-  private Boolean isThirdSaturday(LocalDate date) {
+  @Override
+  protected ProviderNames name() {
+    return AUTOS_AR;
+  }
+
+  protected Boolean isSaleDay(LocalDate date) {
     val ordinal = 3;
     val weekday = DayOfWeek.SATURDAY;
     val adjusted = date.with(TemporalAdjusters.dayOfWeekInMonth(ordinal, weekday));

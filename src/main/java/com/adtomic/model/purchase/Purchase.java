@@ -1,7 +1,7 @@
 package com.adtomic.model.purchase;
 
 
-import com.adtomic.domain.providers.ProvidersEnum;
+import com.adtomic.domain.providers.ProviderNames;
 import com.adtomic.model.autoParts.AutoPartType;
 import com.adtomic.model.payment.PaymentMethod;
 import com.fasterxml.jackson.annotation.JsonFormat;
@@ -28,7 +28,7 @@ public class Purchase {
   @Column(nullable = false)
   @Enumerated(EnumType.STRING)
   @NonNull
-  private ProvidersEnum provider;
+  private ProviderNames provider;
 
   @Column(nullable = false)
   @Enumerated(EnumType.STRING)

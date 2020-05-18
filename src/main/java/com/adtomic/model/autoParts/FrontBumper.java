@@ -3,8 +3,7 @@ package com.adtomic.model.autoParts;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-import java.time.LocalDate;
-
+import static com.adtomic.model.autoParts.AutoPartName.FRONT_BUMPER;
 import static com.adtomic.model.autoParts.AutoPartType.BODY_WORK;
 
 @NoArgsConstructor
@@ -16,7 +15,8 @@ public class FrontBumper extends AutoPart {
     return BODY_WORK;
   }
 
-  public Double price(LocalDate date) {
-    return super.price(date);
+  @Override
+  public AutoPartName name() {
+    return FRONT_BUMPER;
   }
 }

@@ -3,11 +3,11 @@ package com.adtomic.model.autoParts;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-import java.time.LocalDate;
-
+import static com.adtomic.model.autoParts.AutoPartName.FRONT_GRILL;
 import static com.adtomic.model.autoParts.AutoPartType.BODY_WORK;
 
 /**
+ * Autos AR
  * el 3er sabado delprimer semeste de 2019 = 4420
  * el 3er sabado del 2 semeste de 2019 = 5525
  * el 3er sabado del 2 semeste de 2020 = 8632.8125
@@ -21,8 +21,10 @@ public class FrontGrill extends AutoPart {
     return BODY_WORK;
   }
 
-  public Double price(LocalDate date) {
-    return super.price(date);
+  @Override
+  public AutoPartName name() {
+    return FRONT_GRILL;
   }
+
 }
 
