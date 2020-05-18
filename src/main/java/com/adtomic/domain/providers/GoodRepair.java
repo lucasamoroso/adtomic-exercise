@@ -1,6 +1,7 @@
 package com.adtomic.domain.providers;
 
-import com.adtomic.model.autoParts.AutoPartName;
+import com.adtomic.domain.providers.enums.ProviderNames;
+import com.adtomic.model.autoParts.enums.AutoPartName;
 import com.adtomic.model.purchase.PurchaseOption;
 import io.vavr.collection.HashMap;
 import io.vavr.collection.HashSet;
@@ -11,9 +12,9 @@ import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.util.Objects;
 
-import static com.adtomic.domain.providers.ProviderNames.GOOD_REPAIR;
-import static com.adtomic.model.autoParts.AutoPartType.BODY_WORK;
-import static com.adtomic.model.autoParts.AutoPartType.OPTIC;
+import static com.adtomic.domain.providers.enums.ProviderNames.GOOD_REPAIR;
+import static com.adtomic.model.autoParts.enums.AutoPartType.BODY_WORK;
+import static com.adtomic.model.autoParts.enums.AutoPartType.OPTIC;
 import static com.adtomic.model.payment.PaymentMethod.CASH;
 import static com.adtomic.model.payment.PaymentMethod.CREDIT_CARD;
 import static java.time.DayOfWeek.*;

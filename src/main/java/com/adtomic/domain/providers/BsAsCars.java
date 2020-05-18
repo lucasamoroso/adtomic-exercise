@@ -1,20 +1,25 @@
 package com.adtomic.domain.providers;
 
-import com.adtomic.model.autoParts.AutoPartName;
+import com.adtomic.domain.providers.enums.ProviderNames;
+import com.adtomic.model.autoParts.enums.AutoPartName;
 import com.adtomic.model.purchase.PurchaseOption;
 import io.vavr.collection.HashMap;
+import io.vavr.collection.List;
+import lombok.extern.slf4j.Slf4j;
+import lombok.val;
 
 import java.time.LocalDate;
-import java.time.temporal.TemporalAdjusters;
+import java.time.YearMonth;
 import java.util.Objects;
 
-import static com.adtomic.domain.providers.ProviderNames.BS_AS_CARS;
-import static com.adtomic.model.autoParts.AutoPartType.OPTIC;
+import static com.adtomic.domain.providers.enums.ProviderNames.BS_AS_CARS;
+import static com.adtomic.model.autoParts.enums.AutoPartType.OPTIC;
 import static com.adtomic.model.payment.PaymentMethod.CREDIT_CARD;
 
 /**
  * A partir del 1er dia de cada mes tiene un 11% de descuento en opticas cada 5 dias (Ejemplo : dia 1, 6, 11 ...) pagando con tarjeta de credito
  */
+@Slf4j
 public class BsAsCars extends Provider {
   protected HashMap<AutoPartName, PurchaseOption> getSales(LocalDate date) {
     return super.autoParts.filter(a -> Objects.equals(OPTIC, a.type()))
@@ -33,12 +38,11 @@ public class BsAsCars extends Provider {
   }
 
   protected Boolean isSaleDay(LocalDate date) {
-    for (int i = 1; i <= date.with(TemporalAdjusters.lastDayOfMonth()).getDayOfMonth(); i = i + 5) {
-      if (date.getDayOfMonth() == i) {
-        return true;
-      }
-    }
-    return false;
+    val daysOfMonth = YearMonth.of(date.getYear(), date.getMonth()).lengthOfMonth();
+
+    return List
+        .rangeClosedBy(1, daysOfMonth, 5)
+        .foldLeft(false, (seed, day) -> seed || date.getDayOfMonth() == day);
 
   }
 }

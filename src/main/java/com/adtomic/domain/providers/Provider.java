@@ -1,6 +1,11 @@
 package com.adtomic.domain.providers;
 
-import com.adtomic.model.autoParts.*;
+import com.adtomic.domain.providers.enums.ProviderNames;
+import com.adtomic.model.autoParts.AutoPart;
+import com.adtomic.model.autoParts.FrontBumper;
+import com.adtomic.model.autoParts.FrontGrill;
+import com.adtomic.model.autoParts.Optic;
+import com.adtomic.model.autoParts.enums.AutoPartName;
 import com.adtomic.model.purchase.PurchaseOption;
 import io.vavr.collection.HashMap;
 import io.vavr.collection.List;

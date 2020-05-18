@@ -1,10 +1,12 @@
 package com.adtomic.model.autoParts;
 
+import com.adtomic.model.autoParts.enums.AutoPartName;
+import com.adtomic.model.autoParts.enums.AutoPartType;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-import static com.adtomic.model.autoParts.AutoPartName.FRONT_GRILL;
-import static com.adtomic.model.autoParts.AutoPartType.BODY_WORK;
+import static com.adtomic.model.autoParts.enums.AutoPartName.FRONT_GRILL;
+import static com.adtomic.model.autoParts.enums.AutoPartType.BODY_WORK;
 
 /**
  * Autos AR

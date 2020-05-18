@@ -1,8 +1,8 @@
 package com.adtomic.model.purchase;
 
 
-import com.adtomic.domain.providers.ProviderNames;
-import com.adtomic.model.autoParts.AutoPartType;
+import com.adtomic.domain.providers.enums.ProviderNames;
+import com.adtomic.model.autoParts.enums.AutoPartType;
 import com.adtomic.model.payment.PaymentMethod;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.*;

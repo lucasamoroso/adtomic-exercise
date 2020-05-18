@@ -1,9 +1,11 @@
 package com.adtomic.model.autoParts;
 
+import com.adtomic.model.autoParts.enums.AutoPartName;
+import com.adtomic.model.autoParts.enums.AutoPartType;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-import static com.adtomic.model.autoParts.AutoPartType.OPTIC;
+import static com.adtomic.model.autoParts.enums.AutoPartType.OPTIC;
 
 /**
  * BsAs cars 01-01-2019 = 5429

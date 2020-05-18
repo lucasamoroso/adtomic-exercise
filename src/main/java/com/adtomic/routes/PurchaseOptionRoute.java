@@ -1,6 +1,6 @@
 package com.adtomic.routes;
 
-import com.adtomic.model.autoParts.AutoPartName;
+import com.adtomic.model.autoParts.enums.AutoPartName;
 import com.adtomic.model.purchase.PurchaseOption;
 import com.adtomic.services.PurchaseService;
 import lombok.NonNull;

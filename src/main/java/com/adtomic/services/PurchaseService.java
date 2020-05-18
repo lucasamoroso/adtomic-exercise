@@ -4,7 +4,7 @@ import com.adtomic.domain.providers.AutosAR;
 import com.adtomic.domain.providers.BsAsCars;
 import com.adtomic.domain.providers.GoodRepair;
 import com.adtomic.domain.providers.Provider;
-import com.adtomic.model.autoParts.AutoPartName;
+import com.adtomic.model.autoParts.enums.AutoPartName;
 import com.adtomic.model.purchase.Purchase;
 import com.adtomic.model.purchase.PurchaseOption;
 import com.adtomic.repositories.PurchaseRepository;

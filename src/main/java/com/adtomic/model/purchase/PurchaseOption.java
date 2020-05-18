@@ -1,6 +1,6 @@
 package com.adtomic.model.purchase;
 
-import com.adtomic.domain.providers.ProviderNames;
+import com.adtomic.domain.providers.enums.ProviderNames;
 import com.adtomic.model.payment.PaymentMethod;
 import lombok.*;
 import lombok.experimental.SuperBuilder;

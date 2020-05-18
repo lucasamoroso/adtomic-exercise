@@ -1,5 +1,7 @@
 package com.adtomic.model.autoParts;
 
+import com.adtomic.model.autoParts.enums.AutoPartName;
+import com.adtomic.model.autoParts.enums.AutoPartType;
 import io.vavr.collection.List;
 import lombok.Getter;
 import lombok.val;

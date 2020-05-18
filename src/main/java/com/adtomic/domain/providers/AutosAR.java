@@ -1,6 +1,7 @@
 package com.adtomic.domain.providers;
 
-import com.adtomic.model.autoParts.AutoPartName;
+import com.adtomic.domain.providers.enums.ProviderNames;
+import com.adtomic.model.autoParts.enums.AutoPartName;
 import com.adtomic.model.purchase.PurchaseOption;
 import io.vavr.collection.HashMap;
 import lombok.val;
@@ -10,8 +11,8 @@ import java.time.LocalDate;
 import java.time.temporal.TemporalAdjusters;
 import java.util.Objects;
 
-import static com.adtomic.domain.providers.ProviderNames.AUTOS_AR;
-import static com.adtomic.model.autoParts.AutoPartType.BODY_WORK;
+import static com.adtomic.domain.providers.enums.ProviderNames.AUTOS_AR;
+import static com.adtomic.model.autoParts.enums.AutoPartType.BODY_WORK;
 import static com.adtomic.model.payment.PaymentMethod.CASH;
 
 /**
